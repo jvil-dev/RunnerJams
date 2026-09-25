@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Local tooling
+.remember/
+
+# Audio — licensed files are used only for local catalog analysis and must never be committed
+audio/
+*.mp3
+*.wav
+*.m4a
+*.aiff
+*.aif
+*.flac

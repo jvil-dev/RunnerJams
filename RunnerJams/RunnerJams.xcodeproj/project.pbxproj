@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0AF1D083065F331009A5B71 /* RunnerJamsCore in Frameworks */ = {isa = PBXBuildFile; productRef = B0AF1D073065F331009A5B71 /* RunnerJamsCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0AF1CEC3065F2F9009A5B71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0AF1CD63065F2F8009A5B71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0AF1CDD3065F2F8009A5B71;
+			remoteInfo = RunnerJams;
+		};
+		B0AF1CF63065F2F9009A5B71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0AF1CD63065F2F8009A5B71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0AF1CDD3065F2F8009A5B71;
+			remoteInfo = RunnerJams;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B0AF1CDE3065F2F8009A5B71 /* RunnerJams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunnerJams.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0AF1CEB3065F2F9009A5B71 /* RunnerJamsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerJamsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0AF1CF53065F2F9009A5B71 /* RunnerJamsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerJamsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B0AF1CE03065F2F8009A5B71 /* RunnerJams */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RunnerJams;
+			sourceTree = "<group>";
+		};
+		B0AF1CEE3065F2F9009A5B71 /* RunnerJamsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RunnerJamsTests;
+			sourceTree = "<group>";
+		};
+		B0AF1CF83065F2F9009A5B71 /* RunnerJamsUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RunnerJamsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0AF1CDB3065F2F8009A5B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				B0AF1D083065F331009A5B71 /* RunnerJamsCore in Frameworks */,
+			);
+		};
+		B0AF1CE83065F2F9009A5B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		B0AF1CF23065F2F9009A5B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B0AF1CD53065F2F8009A5B71 = {
+			isa = PBXGroup;
+			children = (
+				B0AF1CE03065F2F8009A5B71 /* RunnerJams */,
+				B0AF1CEE3065F2F9009A5B71 /* RunnerJamsTests */,
+				B0AF1CF83065F2F9009A5B71 /* RunnerJamsUITests */,
+				B0AF1CDF3065F2F8009A5B71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0AF1CDF3065F2F8009A5B71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0AF1CDE3065F2F8009A5B71 /* RunnerJams.app */,
+				B0AF1CEB3065F2F9009A5B71 /* RunnerJamsTests.xctest */,
+				B0AF1CF53065F2F9009A5B71 /* RunnerJamsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0AF1CDD3065F2F8009A5B71 /* RunnerJams */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0AF1CFD3065F2F9009A5B71 /* Build configuration list for PBXNativeTarget "RunnerJams" */;
+			buildPhases = (
+				B0AF1CDA3065F2F8009A5B71 /* Sources */,
+				B0AF1CDB3065F2F8009A5B71 /* Frameworks */,
+				B0AF1CDC3065F2F8009A5B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				B0AF1CE03065F2F8009A5B71 /* RunnerJams */,
+			);
+			name = RunnerJams;
+			packageProductDependencies = (
+				B0AF1D073065F331009A5B71 /* RunnerJamsCore */,
+			);
+			productName = RunnerJams;
+			productReference = B0AF1CDE3065F2F8009A5B71 /* RunnerJams.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0AF1CEA3065F2F9009A5B71 /* RunnerJamsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0AF1D003065F2F9009A5B71 /* Build configuration list for PBXNativeTarget "RunnerJamsTests" */;
+			buildPhases = (
+				B0AF1CE73065F2F9009A5B71 /* Sources */,
+				B0AF1CE83065F2F9009A5B71 /* Frameworks */,
+				B0AF1CE93065F2F9009A5B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0AF1CED3065F2F9009A5B71 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B0AF1CEE3065F2F9009A5B71 /* RunnerJamsTests */,
+			);
+			name = RunnerJamsTests;
+			productName = RunnerJamsTests;
+			productReference = B0AF1CEB3065F2F9009A5B71 /* RunnerJamsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B0AF1CF43065F2F9009A5B71 /* RunnerJamsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0AF1D033065F2F9009A5B71 /* Build configuration list for PBXNativeTarget "RunnerJamsUITests" */;
+			buildPhases = (
+				B0AF1CF13065F2F9009A5B71 /* Sources */,
+				B0AF1CF23065F2F9009A5B71 /* Frameworks */,
+				B0AF1CF33065F2F9009A5B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0AF1CF73065F2F9009A5B71 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B0AF1CF83065F2F9009A5B71 /* RunnerJamsUITests */,
+			);
+			name = RunnerJamsUITests;
+			productName = RunnerJamsUITests;
+			productReference = B0AF1CF53065F2F9009A5B71 /* RunnerJamsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0AF1CD63065F2F8009A5B71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					B0AF1CDD3065F2F8009A5B71 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					B0AF1CEA3065F2F9009A5B71 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = B0AF1CDD3065F2F8009A5B71;
+					};
+					B0AF1CF43065F2F9009A5B71 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = B0AF1CDD3065F2F8009A5B71;
+					};
+				};
+			};
+			buildConfigurationList = B0AF1CD93065F2F8009A5B71 /* Build configuration list for PBXProject "RunnerJams" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0AF1CD53065F2F8009A5B71;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B0AF1D063065F331009A5B71 /* XCLocalSwiftPackageReference "../Packages/RunnerJamsCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B0AF1CDF3065F2F8009A5B71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0AF1CDD3065F2F8009A5B71 /* RunnerJams */,
+				B0AF1CEA3065F2F9009A5B71 /* RunnerJamsTests */,
+				B0AF1CF43065F2F9009A5B71 /* RunnerJamsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0AF1CDC3065F2F8009A5B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		B0AF1CE93065F2F9009A5B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		B0AF1CF33065F2F9009A5B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0AF1CDA3065F2F8009A5B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		B0AF1CE73065F2F9009A5B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		B0AF1CF13065F2F9009A5B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0AF1CED3065F2F9009A5B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0AF1CDD3065F2F8009A5B71 /* RunnerJams */;
+			targetProxy = B0AF1CEC3065F2F9009A5B71 /* PBXContainerItemProxy */;
+		};
+		B0AF1CF73065F2F9009A5B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0AF1CDD3065F2F8009A5B71 /* RunnerJams */;
+			targetProxy = B0AF1CF63065F2F9009A5B71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B0AF1CFB3065F2F9009A5B71 /* Debug configuration for PBXProject "RunnerJams" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B0AF1CFC3065F2F9009A5B71 /* Release configuration for PBXProject "RunnerJams" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0AF1CFE3065F2F9009A5B71 /* Debug configuration for PBXNativeTarget "RunnerJams" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJams;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0AF1CFF3065F2F9009A5B71 /* Release configuration for PBXNativeTarget "RunnerJams" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJams;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B0AF1D013065F2F9009A5B71 /* Debug configuration for PBXNativeTarget "RunnerJamsTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunnerJams.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RunnerJams";
+			};
+			name = Debug;
+		};
+		B0AF1D023065F2F9009A5B71 /* Release configuration for PBXNativeTarget "RunnerJamsTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunnerJams.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RunnerJams";
+			};
+			name = Release;
+		};
+		B0AF1D043065F2F9009A5B71 /* Debug configuration for PBXNativeTarget "RunnerJamsUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RunnerJams;
+			};
+			name = Debug;
+		};
+		B0AF1D053065F2F9009A5B71 /* Release configuration for PBXNativeTarget "RunnerJamsUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72KK7R8JUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RunnerJams;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0AF1CD93065F2F8009A5B71 /* Build configuration list for PBXProject "RunnerJams" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0AF1CFB3065F2F9009A5B71 /* Debug configuration for PBXProject "RunnerJams" */,
+				B0AF1CFC3065F2F9009A5B71 /* Release configuration for PBXProject "RunnerJams" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		B0AF1CFD3065F2F9009A5B71 /* Build configuration list for PBXNativeTarget "RunnerJams" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0AF1CFE3065F2F9009A5B71 /* Debug configuration for PBXNativeTarget "RunnerJams" */,
+				B0AF1CFF3065F2F9009A5B71 /* Release configuration for PBXNativeTarget "RunnerJams" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		B0AF1D003065F2F9009A5B71 /* Build configuration list for PBXNativeTarget "RunnerJamsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0AF1D013065F2F9009A5B71 /* Debug configuration for PBXNativeTarget "RunnerJamsTests" */,
+				B0AF1D023065F2F9009A5B71 /* Release configuration for PBXNativeTarget "RunnerJamsTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		B0AF1D033065F2F9009A5B71 /* Build configuration list for PBXNativeTarget "RunnerJamsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0AF1D043065F2F9009A5B71 /* Debug configuration for PBXNativeTarget "RunnerJamsUITests" */,
+				B0AF1D053065F2F9009A5B71 /* Release configuration for PBXNativeTarget "RunnerJamsUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B0AF1D063065F331009A5B71 /* XCLocalSwiftPackageReference "../Packages/RunnerJamsCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Packages/RunnerJamsCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B0AF1D073065F331009A5B71 /* RunnerJamsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RunnerJamsCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B0AF1CD63065F2F8009A5B71 /* Project object */;
+	validationLevel = 1;
+}
