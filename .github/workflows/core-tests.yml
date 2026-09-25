@@ -1,0 +1,41 @@
+name: Core Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core-tests:
+    name: RunnerJamsCore tests
+    runs-on: macos-26
+    timeout-minutes: 20
+    env:
+      # Xcode 27 is preview-only on hosted runners; pin the newest GA Xcode until that changes.
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - name: Show toolchain
+        run: swift --version
+      - name: Run swift test
+        working-directory: Packages/RunnerJamsCore
+        run: swift test
+
+  # The single required check in the "main protection" ruleset. Add every new job to `needs`.
+  ci-gate:
+    name: CI Gate
+    needs: [core-tests]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require all jobs to succeed
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
+        run: exit 1
