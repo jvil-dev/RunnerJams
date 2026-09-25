@@ -1,4 +1,6 @@
-# CLAUDE.md
+# Runner Jams
+
+This file is the one instruction file for every agent and tool working in this repository.
 
 ## Status
 
@@ -25,7 +27,7 @@ Build the app from the command line with:
   - Work starts at RUN-1.
 - [Post-MVP parking lot](https://linear.app/jbrl-llc/project/post-mvp-parking-lot-b510b0f61952): holds deferred ideas. Don't pull from it without an explicit decision.
 - **Labels:** one `Area` label (Playback, Catalog, Engine, UI, Infra) plus one workspace `Type` label (Feature, Task, Bug, Improvement).
-- AssemblyOps (`AOP`) is a separate product in the same workspace. Don't touch it from this project.
+- Other products share this Linear workspace. Only create or change issues, projects and labels in the RunnerJams team. Workspace-level labels are shared, so don't edit them from this project.
 
 ## What this project is
 
@@ -92,8 +94,36 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - IDs are checked with a DEBUG-only MusicKit screen.
 - Tracked in RUN-6, RUN-7 and RUN-8.
 
+## Delivery
+
+`main` is protected by the "main protection" ruleset, applied with `~/.claude/scripts/apply-github-repo-defaults.sh`. It requires a pull request, signed commits, resolved conversations, and a passing `CI Gate` GitHub Actions check.
+
+**Branches**
+- Name branches `<type>/<linear-id>-<short-description>`, cut from `main`, e.g. `chore/RUN-3-core-ci`.
+- When no Linear issue exists, use `<type>/<short-description>`.
+- The id is the Linear issue key in uppercase.
+- Types are `feat`, `fix`, `chore` and `refactor`. A Bug or Hotfix uses `fix/`; there is no `hotfix/` prefix.
+- Every PR targets `main`.
+
+**Pull requests**
+- **One leaf Linear issue anchors one PR**, and at most one leaf issue is in progress at a time.
+- PR titles are `type(scope): imperative summary`. The title becomes the merge commit.
+  - Scopes are `app`, `core`, `catalog` and `repo`.
+  - `docs` and `ci` are types, not scopes.
+- Merge with a merge commit, never squash. Merge commits are title-only.
+- Aim for fewer than 400 authored lines and 10 reviewable files per PR. Generated files don't count if they're named separately.
+
+**Commits**
+- Commit only when the developer asks, and never directly to `main`.
+- Stage only that commit's files. Never run `git add .` or `git add -A`.
+- Every commit has a subject and a body explaining what changed and why.
+- Commits and PRs carry no AI attribution lines (`Co-Authored-By`, `Claude-Session`, or "Generated with").
+
+**Pushing**
+- **Never push.** The developer pushes local commits.
+- After the first push, an agent opens a draft PR when asked.
+
 ## Working notes
 
-- Commit or push only when the developer asks. The default branch is `main`.
 - The Xcode project file (`project.pbxproj`) is maintained by Xcode. Edit it by hand only for mechanical build-setting changes.
 - Product scope belongs to the developer. Draft scope from these documents for approval before implementing.
