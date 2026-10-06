@@ -1,6 +1,6 @@
 # Runner Jams
 
-This file is the one instruction file for every agent and tool working in this repository.
+This file is the repository's agent instructions. Claude is the only agent in the delivery loop. Global defaults live in `~/.claude/CLAUDE.md` and the `project-workflow` skill, and this file refines them.
 
 ## Status
 
@@ -10,9 +10,7 @@ Layout:
 - `RunnerJams/RunnerJams.xcodeproj`: the iOS app. It depends on the local package through `../Packages/RunnerJamsCore`.
 - `Packages/RunnerJamsCore`: the pure-Swift core. Run `swift test` from that directory.
 - `docs/`: product documents.
-
-Build the app from the command line with:
-`xcodebuild -project RunnerJams/RunnerJams.xcodeproj -scheme RunnerJams -destination 'generic/platform=iOS Simulator' build`
+- `scripts/check.sh`: the repository check (see Check).
 
 **Goal:** a resume MVP shipped as a public TestFlight link and a public GitHub repo.
 
@@ -94,36 +92,66 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - IDs are checked with a DEBUG-only MusicKit screen.
 - Tracked in RUN-6, RUN-7 and RUN-8.
 
+## Roles and loop
+
+`project-workflow/references/lifecycle.md` is authoritative.
+
+- **The developer** writes the Linear issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They hand-write the `[DEVELOPER]` structural task (data models, state, core algorithm), review the PR and merge.
+- **Claude** drafts the acceptance criteria and the packet in plan mode. The packet lives in the Linear issue. Claude then implements one task at a time, each under about 150 changed lines.
+
+## Check
+
+- `scripts/check.sh` runs `swift test` in `Packages/RunnerJamsCore`. It gates every commit, and the global Stop hook runs it.
+- When a task touches the app target, also build it:
+  `xcodebuild -project RunnerJams/RunnerJams.xcodeproj -scheme RunnerJams -destination 'generic/platform=iOS Simulator' build`
+- Playback still needs a real device.
+
 ## Delivery
 
-`main` is protected by the "main protection" ruleset, applied with `~/.claude/scripts/apply-github-repo-defaults.sh`. It requires a pull request, signed commits, resolved conversations, and a passing `CI Gate` GitHub Actions check.
+`main` follows the global GitHub defaults: pull requests only, signed commits, resolved conversations, and a passing `CI Gate` check.
 
 **Branches**
 - Name branches `<type>/<linear-id>-<short-description>`, cut from `main`, e.g. `chore/RUN-3-core-ci`.
-- When no Linear issue exists, use `<type>/<short-description>`.
 - The id is the Linear issue key in uppercase.
+- Fast path (no Linear issue): name the branch `<type>/<short-description>`. The PR body says `Linear: N/A — fast path: <reason>`.
 - Types are `feat`, `fix`, `chore` and `refactor`. A Bug or Hotfix uses `fix/`; there is no `hotfix/` prefix.
 - Every PR targets `main`.
 
+**Commits**
+- Claude commits each task once `scripts/check.sh` passes. A test is never deleted, skipped or weakened to get there.
+- Never commit directly to `main`.
+- Stage only that commit's files. Never run `git add .` or `git add -A`.
+- Every commit has a subject and a body explaining what changed and why.
+- Commits and PRs carry no AI attribution lines (`Co-Authored-By`, `Claude-Session`, or "Generated with").
+
+**Pushing**
+- Claude pushes the feature branch after each commit.
+- Never push `main` or tags, never force-push, and never delete a remote branch.
+
 **Pull requests**
 - **One leaf Linear issue anchors one PR**, and at most one leaf issue is in progress at a time.
+- Claude opens a draft PR after the first commit. The description is written up front, with the acceptance criteria unchecked.
+- Claude marks the PR ready only when every criterion is checked. The developer merges.
 - PR titles are `type(scope): imperative summary`. The title becomes the merge commit.
   - Scopes are `app`, `core`, `catalog` and `repo`.
   - `docs` and `ci` are types, not scopes.
 - Merge with a merge commit, never squash. Merge commits are title-only.
 - Aim for fewer than 400 authored lines and 10 reviewable files per PR. Generated files don't count if they're named separately.
 
-**Commits**
-- Commit only when the developer asks, and never directly to `main`.
-- Stage only that commit's files. Never run `git add .` or `git add -A`.
-- Every commit has a subject and a body explaining what changed and why.
-- Commits and PRs carry no AI attribution lines (`Co-Authored-By`, `Claude-Session`, or "Generated with").
+## Risk triggers
 
-**Pushing**
-- **Never push.** The developer pushes local commits.
-- After the first push, an agent opens a draft PR when asked.
+Touching any of these runs:
+- the architect at plan time;
+- the security reviewer before the PR is ready;
+- the final review on opus.
+
+Triggers:
+- SwiftData model or schema changes, including migrations.
+- The `catalog.json` format or the seeding path.
+- Entitlements, Info.plist, or background audio configuration.
+- MusicKit authorization or subscription checks.
+- Any new dependency. The repo has none by design, so adding one needs an explicit decision first.
 
 ## Working notes
 
 - The Xcode project file (`project.pbxproj`) is maintained by Xcode. Edit it by hand only for mechanical build-setting changes.
-- Product scope belongs to the developer. Draft scope from these documents for approval before implementing.
