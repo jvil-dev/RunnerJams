@@ -9,14 +9,16 @@ permissions:
   contents: read
 
 concurrency:
-  group: claude-review-${{ github.event.pull_request.number }}
+  # One group per event type, so a quick "Ready" after a push can't cancel the dismissal.
+  group: claude-review-${{ github.event.pull_request.number }}-${{ github.event.action }}
   cancel-in-progress: true
 
 jobs:
   # A push leaves the bot's last verdict on code no lane has seen, so it is dismissed until the next review.
   dismiss-stale:
     # This repo is public: a PR from a fork never reaches the App key or the model.
-    if: github.event.action == 'synchronize' && github.event.pull_request.head.repo.full_name == github.repository
+    # Dependabot runs get no repo secrets, so its rebases skip this instead of failing.
+    if: github.event.action == 'synchronize' && github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions: {}
     steps:
@@ -40,7 +42,7 @@ jobs:
                 and (.state == "APPROVED" or .state == "CHANGES_REQUESTED")) | .id' |
           while read -r id; do
             gh api -X PUT "repos/$GITHUB_REPOSITORY/pulls/$PR/reviews/$id/dismissals" \
-              -f event=DISMISS -f message="New commits up to ${SHA:0:7}; mark the PR ready again for a review." \
+              -f event=DISMISS -f message="New commits up to ${SHA:0:7}; convert the PR to draft and mark it ready again for a review." \
               --silent
           done
 
@@ -154,7 +156,7 @@ jobs:
           comments=/tmp/review-comments.json
           head=$(gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json headRefOid --jq .headRefOid)
           if [ "$head" != "$SHA" ]; then
-            echo "::error::The PR moved to ${head:0:7} while ${SHA:0:7} was reviewed; mark it ready again."
+            echo "::error::The PR moved to ${head:0:7} while ${SHA:0:7} was reviewed; convert it to draft and mark it ready again."
             exit 1
           fi
           if [ ! -s "$record" ] || ! grep -q "${SHA:0:7}" "$record"; then
