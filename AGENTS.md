@@ -151,6 +151,7 @@ Triggers:
 - Entitlements, Info.plist, or background audio configuration.
 - MusicKit authorization or subscription checks.
 - Any new dependency. The repo has none by design, so adding one needs an explicit decision first.
+- GitHub workflows (`.github/workflows/`) and agent config (`.claude/`). They hold CI secrets and steer the review lanes.
 
 ## Review
 
