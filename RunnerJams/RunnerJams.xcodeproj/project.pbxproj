@@ -33,9 +33,22 @@
 		B0AF1CF53065F2F9009A5B71 /* RunnerJamsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerJamsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B0B885EB309E435900C8279E /* Exceptions for "RunnerJams" folder in "RunnerJams" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B0AF1CDD3065F2F8009A5B71 /* RunnerJams */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B0AF1CE03065F2F8009A5B71 /* RunnerJams */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B0B885EB309E435900C8279E /* Exceptions for "RunnerJams" folder in "RunnerJams" target */,
+			);
 			path = RunnerJams;
 			sourceTree = "<group>";
 		};
@@ -165,7 +178,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2700;
-				LastUpgradeCheck = 2700;
+				LastUpgradeCheck = 2720;
 				TargetAttributes = {
 					B0AF1CDD3065F2F8009A5B71 = {
 						CreatedOnToolsVersion = 27.0;
@@ -313,6 +326,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -370,6 +384,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -385,6 +400,10 @@
 				DEVELOPMENT_TEAM = 72KK7R8JUS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RunnerJams/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Runner Jams";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Runner Jams plays songs from your Apple Music subscription to DJ your run.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Runner Jams uses your step rate to match the music to your pace. Runs work without it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -396,7 +415,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJams;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.runnerjams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -418,6 +437,10 @@
 				DEVELOPMENT_TEAM = 72KK7R8JUS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RunnerJams/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Runner Jams";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Runner Jams plays songs from your Apple Music subscription to DJ your run.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Runner Jams uses your step rate to match the music to your pace. Runs work without it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -429,7 +452,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJams;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.runnerjams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -451,7 +474,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.runnerjams.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -473,7 +496,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.runnerjams.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -493,7 +516,7 @@
 				DEVELOPMENT_TEAM = 72KK7R8JUS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.runnerjams.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -513,7 +536,7 @@
 				DEVELOPMENT_TEAM = 72KK7R8JUS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.RunnerJamsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbrl.runnerjams.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
