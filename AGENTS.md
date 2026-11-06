@@ -131,9 +131,9 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - Never push `main` or tags, never force-push, and never delete a remote branch.
 
 **Pull requests**
-- **One leaf Linear issue anchors one PR**, and at most one leaf issue is in progress at a time.
+- **One leaf Linear issue may take several PRs, and each PR belongs to one leaf issue.** Every PR leaves `main` safe to merge.
 - Claude opens a draft PR after the first commit. The description is written up front, with the acceptance criteria unchecked.
-- Claude marks the PR ready only when every criterion is checked. The developer merges.
+- Claude marks the PR ready only when every criterion this PR covers is checked. The issue's last PR covers whatever remains. The developer merges.
 - PR titles are `type(scope): imperative summary`. The title becomes the merge commit.
   - Scopes are `app`, `core`, `catalog` and `repo`.
   - `docs` and `ci` are types, not scopes.
