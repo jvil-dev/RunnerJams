@@ -96,8 +96,10 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 
 `project-workflow/references/lifecycle.md` is authoritative.
 
-- **The developer** writes the Linear issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They hand-write the `[DEVELOPER]` structural task (data models, state, core algorithm), review the PR and merge.
+- **The developer** writes the Linear issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They type every `diy` task, review the PR and merge.
 - **Claude** drafts the acceptance criteria and the packet in plan mode. The packet lives in the Linear issue. Claude then implements one task at a time, each under about 150 changed lines.
+- **Builder.** The packet marks each task `implementer`, `diy` or `split`, using the builder question in `lifecycle.md`. Swift source defaults to `diy`. Everything else defaults to `implementer`, including JSON, plists, Markdown and workflow YAML.
+- **`diy` tasks.** Claude dispatches `diy-guide` and relays its guide. The developer types the code. Claude then checks it and runs `scripts/check.sh`.
 
 ## Check
 
@@ -129,9 +131,9 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - Never push `main` or tags, never force-push, and never delete a remote branch.
 
 **Pull requests**
-- **One leaf Linear issue anchors one PR**, and at most one leaf issue is in progress at a time.
+- **One leaf Linear issue may take several PRs, and each PR belongs to one leaf issue.** Every PR leaves `main` safe to merge.
 - Claude opens a draft PR after the first commit. The description is written up front, with the acceptance criteria unchecked.
-- Claude marks the PR ready only when every criterion is checked. The developer merges.
+- Claude marks the PR ready only when every criterion this PR covers is checked. The issue's last PR covers whatever remains. The developer merges.
 - PR titles are `type(scope): imperative summary`. The title becomes the merge commit.
   - Scopes are `app`, `core`, `catalog` and `repo`.
   - `docs` and `ci` are types, not scopes.
@@ -151,6 +153,7 @@ Triggers:
 - Entitlements, Info.plist, or background audio configuration.
 - MusicKit authorization or subscription checks.
 - Any new dependency. The repo has none by design, so adding one needs an explicit decision first.
+- GitHub workflows (`.github/workflows/`) and agent config (`.claude/`). They hold CI secrets and steer the review lanes.
 
 ## Review
 
