@@ -152,6 +152,10 @@ Triggers:
 - MusicKit authorization or subscription checks.
 - Any new dependency. The repo has none by design, so adding one needs an explicit decision first.
 
+## Review
+
+Reviews follow `docs/delivery/review.md`: the review lanes, the review record, the finding format and the code review contract. Every reviewer reads it along with this file.
+
 ## Working notes
 
 - The Xcode project file (`project.pbxproj`) is maintained by Xcode. Edit it by hand only for mechanical build-setting changes.
