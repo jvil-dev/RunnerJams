@@ -96,8 +96,10 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 
 `project-workflow/references/lifecycle.md` is authoritative.
 
-- **The developer** writes the Linear issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They hand-write the `[DEVELOPER]` structural task (data models, state, core algorithm), review the PR and merge.
+- **The developer** writes the Linear issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They type every `diy` task, review the PR and merge.
 - **Claude** drafts the acceptance criteria and the packet in plan mode. The packet lives in the Linear issue. Claude then implements one task at a time, each under about 150 changed lines.
+- **Builder.** The packet marks each task `implementer`, `diy` or `split`, using the builder question in `lifecycle.md`. Swift source defaults to `diy`. Everything else defaults to `implementer`, including JSON, plists, Markdown and workflow YAML.
+- **`diy` tasks.** Claude dispatches `diy-guide` and relays its guide. The developer types the code. Claude then checks it and runs `scripts/check.sh`.
 
 ## Check
 
