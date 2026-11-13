@@ -17,15 +17,14 @@ Layout:
 - **Repo:** public, with no LICENSE file for now (all rights reserved by default).
 - **Apple Developer account:** personal for now; moving it to the LLC comes later.
 
-**Planning lives in Linear.** Workspace: JBRL Services LLC. Team: RunnerJams (key `RUN`).
-- [MVP → TestFlight](https://linear.app/jbrl-llc/project/mvp-testflight-1423d7af5d89)
-  - Milestones M0 Foundations → M6 Ship.
-  - Each milestone has 2–4 top-level **parent issues**. Each parent has *Acceptance criteria* and a *Likely sub-tasks* checklist.
+**Planning lives in GitHub Issues.** Work runs in one-week cycles, Monday to Sunday. Each cycle is a GitHub milestone whose description is the developer-written goal (`project-workflow/references/cadence.md`).
+- **MVP → TestFlight:** the open issues without the `post-mvp` label.
+  - The MVP has seven phases, M0 Foundations → M6 Ship. Issue bodies refer to them. They are not GitHub milestones, which are used only for cycles.
+  - Each phase has 2–4 top-level **parent issues**. Each parent has *Acceptance criteria* and a *Likely sub-tasks* checklist.
   - Promote a checklist item to a sub-issue when it becomes real work.
-  - Work starts at RUN-1.
-- [Post-MVP parking lot](https://linear.app/jbrl-llc/project/post-mvp-parking-lot-b510b0f61952): holds deferred ideas. Don't pull from it without an explicit decision.
-- **Labels:** one `Area` label (Playback, Catalog, Engine, UI, Infra) plus one workspace `Type` label (Feature, Task, Bug, Improvement).
-- Other products share this Linear workspace. Only create or change issues, projects and labels in the RunnerJams team. Workspace-level labels are shared, so don't edit them from this project.
+  - Issues migrated from Linear end with `Migrated from RUN-n`.
+- **Post-MVP parking lot:** the issues labeled `post-mvp`. They hold deferred ideas. Don't pull from them without an explicit decision.
+- **Labels:** `size:1`, `size:2` or `size:3` for the issue's size, `stretch` for cycle work outside the commitment, and `post-mvp`.
 
 ## What this project is
 
@@ -90,14 +89,14 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - Label the version that matches Apple Music, not DJ edits. Duration always comes from Apple Music.
 - Ships as a bundled `catalog.json` that is seeded into SwiftData.
 - IDs are checked with a DEBUG-only MusicKit screen.
-- Tracked in RUN-6, RUN-7 and RUN-8.
+- Tracked in #11, #12 and #13.
 
 ## Roles and loop
 
 `project-workflow/references/lifecycle.md` is authoritative.
 
-- **The developer** writes the Linear issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They type every `diy` task, review the PR and merge.
-- **Claude** drafts the acceptance criteria and the packet in plan mode. The packet lives in the Linear issue. Claude then implements one task at a time, each under about 150 changed lines.
+- **The developer** writes the GitHub issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They type every `diy` task, review the PR and merge.
+- **Claude** drafts the acceptance criteria and the packet in plan mode. The packet lives in the issue body. Claude then implements one task at a time, each under about 150 changed lines.
 - **Builder.** The packet marks each task `implementer`, `diy` or `split`, using the builder question in `lifecycle.md`. Swift source defaults to `diy`. Everything else defaults to `implementer`, including JSON, plists, Markdown and workflow YAML.
 - **`diy` tasks.** Claude dispatches `diy-guide` and relays its guide. The developer types the code. Claude then checks it and runs `scripts/check.sh`.
 
@@ -113,9 +112,9 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 `main` follows the global GitHub defaults: pull requests only, signed commits, resolved conversations, and a passing `CI Gate` check.
 
 **Branches**
-- Name branches `<type>/<linear-id>-<short-description>`, cut from `main`, e.g. `chore/RUN-3-core-ci`.
-- The id is the Linear issue key in uppercase.
-- Fast path (no Linear issue): name the branch `<type>/<short-description>`. The PR body says `Linear: N/A — fast path: <reason>`.
+- Name branches `<type>/<n>-<short-description>`, cut from `main`, e.g. `feat/9-music-authorization`.
+- `n` is the GitHub issue number.
+- Fast path (no issue): name the branch `<type>/<short-description>`. The PR body says `Issue: N/A — fast path: <reason>`.
 - Types are `feat`, `fix`, `chore` and `refactor`. A Bug or Hotfix uses `fix/`; there is no `hotfix/` prefix.
 - Every PR targets `main`.
 
@@ -131,7 +130,7 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - Never push `main` or tags, never force-push, and never delete a remote branch.
 
 **Pull requests**
-- **One leaf Linear issue may take several PRs, and each PR belongs to one leaf issue.** Every PR leaves `main` safe to merge.
+- **One leaf issue may take several PRs, and each PR belongs to one leaf issue.** Every PR leaves `main` safe to merge.
 - Claude opens a draft PR after the first commit. The description is written up front, with the acceptance criteria unchecked.
 - Claude marks the PR ready only when every criterion this PR covers is checked. The issue's last PR covers whatever remains. The developer merges.
 - PR titles are `type(scope): imperative summary`. The title becomes the merge commit.
