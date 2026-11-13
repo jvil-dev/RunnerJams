@@ -1,6 +1,6 @@
 name: Claude Code
 
-# No `issues` trigger: planning lives in Linear, and on a public repo anyone can open an issue.
+# No `issues` trigger: on a public repo anyone can open an issue.
 on:
   issue_comment:
     types: [created]
