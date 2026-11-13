@@ -8,6 +8,8 @@ Issue: <Closes #n | Part of #n | N/A — fast path: reason>
 
 ## Summary
 
+> TLDR: <one sentence: what changes, and for whom>
+
 <!-- The smallest view that shows the change, next to 1–2 lines of text: pseudocode, a call tree,
 a component tree, a file tree, Mermaid, or a shaped diff. Sketch it before the work is done;
 redraw it if the shape changes. -->

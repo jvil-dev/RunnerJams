@@ -123,7 +123,8 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - Never commit directly to `main`.
 - Stage only that commit's files. Never run `git add .` or `git add -A`.
 - Every commit has a subject and a body explaining what changed and why.
-- Commits and PRs carry no AI attribution lines (`Co-Authored-By`, `Claude-Session`, or "Generated with").
+- A commit's author is whoever wrote it. A commit Claude wrote uses `--author="Claude <noreply@anthropic.com>"`; a commit holding code the developer typed keeps the developer as author. The developer signs both.
+- Commits and PRs carry no attribution trailer lines (`Co-Authored-By`, `Claude-Session`, or "Generated with").
 
 **Pushing**
 - Claude pushes the feature branch after each commit.
