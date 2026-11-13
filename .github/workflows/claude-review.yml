@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Get the review-submitting App token
         id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.RUNNERJAMS_CLAUDE_CLIENT_ID }}
           private-key: ${{ secrets.RUNNERJAMS_CLAUDE_PRIVATE_KEY }}
@@ -64,7 +64,7 @@ jobs:
       # The model reads with this token; only the submit step below holds the one that can comment.
       - name: Get a read-only App token for the review
         id: read-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.RUNNERJAMS_CLAUDE_CLIENT_ID }}
           private-key: ${{ secrets.RUNNERJAMS_CLAUDE_PRIVATE_KEY }}
@@ -97,7 +97,7 @@ jobs:
 
       - name: Run the review lanes
         # v1.0.250, the release AssemblyOps' review workflow runs.
-        uses: anthropics/claude-code-action@a26b07d8c778b0c43f64618e5fd29fd0f8af72e8
+        uses: anthropics/claude-code-action@4fa93a88de49bbef68b10eb15aabedf28ca0e1ed
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ steps.read-token.outputs.token }}
@@ -138,7 +138,7 @@ jobs:
 
       - name: Get the review-submitting App token
         id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.RUNNERJAMS_CLAUDE_CLIENT_ID }}
           private-key: ${{ secrets.RUNNERJAMS_CLAUDE_PRIVATE_KEY }}
