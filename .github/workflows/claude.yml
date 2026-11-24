@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 1
 
       - name: Run Claude Code
-        # v1.0.250, the release AssemblyOps' workflows run.
+        # Pinned to v1.0.250.
         uses: anthropics/claude-code-action@4fa93a88de49bbef68b10eb15aabedf28ca0e1ed
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -57,4 +57,4 @@ jobs:
           claude_args: |
             --model claude-opus-5-5
             --allowedTools "Agent,Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr checks:*),Bash(gh pr comment:*),Bash(gh run view:*)"
-            --append-system-prompt "You are tagged Claude on a GitHub pull request. Read AGENTS.md and docs/delivery/review.md before acting; the Tagged Claude and review-record rules govern this run."
+            --append-system-prompt "You are tagged Claude on a GitHub pull request. Read AGENTS.md before acting. Answer questions about the diff, and commit only when a comment explicitly asks for a change."
