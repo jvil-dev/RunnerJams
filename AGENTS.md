@@ -1,6 +1,6 @@
 # Runner Jams
 
-This file is the repository's agent instructions. Claude is the only agent in the delivery loop. Global defaults live in `~/.claude/CLAUDE.md` and the `project-workflow` skill, and this file refines them.
+This file is the repository's agent instructions. Claude is the only agent in the delivery loop. Global defaults live in `~/.claude/CLAUDE.md`, and this file refines them.
 
 ## Status
 
@@ -17,14 +17,14 @@ Layout:
 - **Repo:** public, with no LICENSE file for now (all rights reserved by default).
 - **Apple Developer account:** personal for now; moving it to the LLC comes later.
 
-**Planning lives in GitHub Issues.** Work runs in one-week cycles, Monday to Sunday. Each cycle is a GitHub milestone whose description is the developer-written goal (`project-workflow/references/cadence.md`).
+**Planning lives in GitHub Issues.**
 - **MVP → TestFlight:** the open issues without the `post-mvp` label.
-  - The MVP has seven phases, M0 Foundations → M6 Ship. Issue bodies refer to them. They are not GitHub milestones, which are used only for cycles.
+  - The MVP has seven phases, M0 Foundations → M6 Ship. Issue bodies refer to them. They are not GitHub milestones.
   - Each phase has 2–4 top-level **parent issues**. Each parent has *Acceptance criteria* and a *Likely sub-tasks* checklist.
   - Promote a checklist item to a sub-issue when it becomes real work.
   - Issues migrated from Linear end with `Migrated from RUN-n`.
 - **Post-MVP parking lot:** the issues labeled `post-mvp`. They hold deferred ideas. Don't pull from them without an explicit decision.
-- **Labels:** `size:1`, `size:2` or `size:3` for the issue's size, `stretch` for cycle work outside the commitment, and `post-mvp`.
+- **Labels:** `post-mvp`, and the triage labels in `docs/agents/triage-labels.md`.
 
 ## What this project is
 
@@ -91,18 +91,24 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - IDs are checked with a DEBUG-only MusicKit screen.
 - Tracked in #11, #12 and #13.
 
-## Roles and loop
+## How to work
 
-`project-workflow/references/lifecycle.md` is authoritative.
+Use the `mattpocock-skills` plugin. Pick the lightest path that fits:
 
-- **The developer** writes the GitHub issue (Context and scope, Goals, Non-goals, Proposed design, Alternatives considered) and sketches the shape. They type every `diy` task, review the PR and merge.
-- **Claude** drafts the acceptance criteria and the packet in plan mode. The packet lives in the issue body. Claude then implements one task at a time, each under about 150 changed lines.
-- **Builder.** The packet marks each task `implementer`, `diy` or `split`, using the builder question in `lifecycle.md`. Swift source defaults to `diy`. Everything else defaults to `implementer`, including JSON, plists, Markdown and workflow YAML.
-- **`diy` tasks.** Claude dispatches `diy-guide` and relays its guide. The developer types the code. Claude then checks it and runs `scripts/check.sh`.
+- **Small fix or chore:** a branch, `tdd` where there is logic, then the pull request.
+- **Bug:** `diagnosing-bugs`.
+- **New feature:** `/grill-with-docs` until it is clear, `/to-spec` to write the issue, `/to-tickets` if it needs more than one PR, then `/implement`. The developer starts each of these.
+- **Unsure of a design:** `prototype`, on a branch that is never merged.
+- **Typing it yourself:** at `/to-tickets` Claude proposes the one ticket that carries the feature's design idea. The developer types it from a `diy-guide` guide, or declines.
+
+Overrides for plugin skills:
+
+- Commits from `/implement` and `tdd` follow "Delivery" below: `scripts/check.sh` first, files staged by path.
+- Where a plugin skill says `code-review`, use `mattpocock-skills:code-review` (standards and spec). Its fixed point is `main`, and its standards are "Planned architecture" and "Design constraints that drive the code" above.
 
 ## Check
 
-- `scripts/check.sh` runs `swift test` in `Packages/RunnerJamsCore`. It gates every commit, and the global Stop hook runs it.
+- `scripts/check.sh` runs `swift test` in `Packages/RunnerJamsCore`. It gates every commit.
 - When a task touches the app target, also build it:
   `xcodebuild -project RunnerJams/RunnerJams.xcodeproj -scheme RunnerJams -destination 'generic/platform=iOS Simulator' build`
 - Playback still needs a real device.
@@ -119,7 +125,7 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 - Every PR targets `main`.
 
 **Commits**
-- Claude commits each task once `scripts/check.sh` passes. A test is never deleted, skipped or weakened to get there.
+- Commit only once `scripts/check.sh` passes. A test is never deleted, skipped or weakened to get there.
 - Never commit directly to `main`.
 - Stage only that commit's files. Never run `git add .` or `git add -A`.
 - Every commit has a subject and a body explaining what changed and why.
@@ -132,8 +138,9 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 
 **Pull requests**
 - **One leaf issue may take several PRs, and each PR belongs to one leaf issue.** Every PR leaves `main` safe to merge.
-- Claude opens a draft PR after the first commit. The description is written up front, with the acceptance criteria unchecked.
-- Claude marks the PR ready only when every criterion this PR covers is checked. The issue's last PR covers whatever remains. The developer merges.
+- Claude opens a draft PR after the first commit, with the description written up front.
+- Before marking a PR ready, run the built-in `/code-review`, which hunts bugs, against `main`. If the diff touches a risk trigger below, also run the built-in `/security-review`.
+- Claude marks the PR ready only when every criterion this PR covers is met. The issue's last PR covers whatever remains. The developer merges.
 - PR titles are `type(scope): imperative summary`. The title becomes the merge commit.
   - Scopes are `app`, `core`, `catalog` and `repo`.
   - `docs` and `ci` are types, not scopes.
@@ -142,23 +149,29 @@ Full library ingestion, Spotify, Apple Watch / HealthKit / heart rate, GPS and d
 
 ## Risk triggers
 
-Touching any of these runs:
-- the architect at plan time;
-- the security reviewer before the PR is ready;
-- the final review on opus.
+A PR that touches any of these runs the built-in `/security-review` before it is marked ready:
 
-Triggers:
 - SwiftData model or schema changes, including migrations.
 - The `catalog.json` format or the seeding path.
 - Entitlements, Info.plist, or background audio configuration.
 - MusicKit authorization or subscription checks.
 - Any new dependency. The repo has none by design, so adding one needs an explicit decision first.
-- GitHub workflows (`.github/workflows/`) and agent config (`.claude/`). They hold CI secrets and steer the review lanes.
-
-## Review
-
-Reviews follow `docs/delivery/review.md`: the review lanes, the review record, the finding format and the code review contract. Every reviewer reads it along with this file.
+- GitHub workflows (`.github/workflows/`) and agent config (`.claude/`). They hold CI secrets and steer the agents.
 
 ## Working notes
 
 - The Xcode project file (`project.pbxproj`) is maintained by Xcode. Edit it by hand only for mechanical build-setting changes.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues on `jvil-dev/RunnerJams`, reached with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five default triage labels, each named for its role. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `GLOSSARY.md` at the root and ADRs in `docs/adr/`, each created when first needed. See `docs/agents/domain.md`.
